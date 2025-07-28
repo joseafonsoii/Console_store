@@ -1,6 +1,6 @@
 package ao.jose.modell;
 
-public class Sells {
+public class Sales {
     
 
 }

@@ -1,6 +1,8 @@
 package ao.jose.modell;
 
 public class Client {
+    // This class represents a client in the system
+    // It contains properties such as id, name, email, and phone number
     private int id;
     private String name;
     private String email;

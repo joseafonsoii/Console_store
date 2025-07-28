@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class Connecter {
     private static final String URL = "jdbc:mysql://localhost:3306/console_shop?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "";//Your mysql password
+    private static final String PASSWORD = "m4n1nh0l1n0gr4c1";//Your mysql password
 
     public static Connection conecting() {
         try {

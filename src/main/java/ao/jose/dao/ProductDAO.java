@@ -1,6 +1,4 @@
-
 package ao.jose.dao;
-
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +12,6 @@ import ao.jose.modell.Product;
 public class ProductDAO {
 
 	
-
     public void addProduct(Product product) {
         String query = "INSERT INTO product (name, description, price, quantity) VALUES (?, ?, ?, ?)";
 

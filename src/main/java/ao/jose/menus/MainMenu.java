@@ -3,36 +3,45 @@ package ao.jose.menus;
 import java.util.Scanner;
 
 public class MainMenu {
+    private Scanner scanner;
 
-    public void showMenu() {
-        System.out.println("=== Main Menu ===");
-        System.out.println("1. Product Menu");
-        System.out.println("2. Client Menu");
-        System.out.println("3. Exit");
-        System.out.print("Choose an option: ");
-
-        Scanner scan = new Scanner(System.in);
-        do{
-        int choice = scan.nextInt();
-        scan.nextLine(); // Consume newline
-        switch (choice) {
-            case 1:
-                new ProductMenu().showMenu();
-                break;
-            case 2:
-                new ClientMenu().showMenu();
-                break;
-            case 3:
-                System.out.println("Exiting...");
-                return;
-            default:
-                System.out.println("Invalid choice, please try again.");
-        }
-        scan.close();
-        } while (true);
-        
+    public MainMenu(Scanner scanner) {
+        this.scanner = scanner;
     }
 
+    public void showMenu() {
+        while (true) {
+            System.out.println("=== Main Menu ===");
+            System.out.println("1. Product Menu");
+            System.out.println("2. Client Menu");
+            System.out.println("3. Staff Menu");
+            System.out.println("4. Sales Menu");
+            System.out.println("5. Exit");
+            System.out.print("Choose an option: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // limpar \n
+
+            switch (choice) {
+                case 1:
+                    new ProductMenu(scanner).showMenu();
+                    break;
+                case 2:
+                    new ClientMenu(scanner).showMenu();
+                    break;
+                case 3:
+                    new StaffMenu(scanner).showMenu(); // ⬅️ Aqui está o Scanner passado corretamente
+                    break;
+                case 4:
+                    new SalesMenu(scanner).showMenu();
+                    break;
+                case 5:
+                    System.out.println("EXITING...");
+                    return;
+                default:
+                    System.out.println("Invalid choice, please try again.");
+                    break;
+            }
+        }
+    }
 }
-//// This code defines a MainMenu class that provides a menu for navigating to product and client management.
-//// It allows the user to choose between the product menu, client menu, or exit the application

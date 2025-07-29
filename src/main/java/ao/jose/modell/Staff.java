@@ -1,5 +1,7 @@
 package ao.jose.modell;
 
+import java.math.BigDecimal;
+
 public class Staff {
     private int id;
     private String name;
@@ -7,13 +9,15 @@ public class Staff {
     private String phoneNumber;
     private BigDecimal salary;
 
-    public staff(String name, String email, String phoneNumber, BigDecimal salary) {
+    public Staff(String name, String email, BigDecimal salary, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.salary = salary;
 
     }
+
+    
     public String getName() {
         return name;
     }
@@ -38,6 +42,16 @@ public class Staff {
     }
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
     }
     
 }

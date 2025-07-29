@@ -7,7 +7,10 @@ import ao.jose.validators.Validater;
 
 public class ClientMenu {
 
-    Scanner scan = new Scanner(System.in);
+    private Scanner scanner;
+    public ClientMenu(Scanner scanner) {
+        this.scanner = scanner;
+    }
     ClientDAO clientDAO = new ClientDAO();
 
     public void showMenu() {
@@ -18,8 +21,8 @@ public class ClientMenu {
             System.out.println("3. Exit");
             System.out.print("Choose an option: ");
 
-            int choice = scan.nextInt();
-            scan.nextLine(); // Consume newline
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
 
             switch (choice) {
                 case 1:
@@ -28,15 +31,15 @@ public class ClientMenu {
 
                     
                         System.out.print("Enter client name: ");
-                        name = scan.nextLine();
+                        name = scanner.nextLine();
 
                         do {
                         
                         System.out.print("Enter client email: ");
-                        email = scan.nextLine();
+                        email = scanner.nextLine();
 
                         System.out.print("Enter client phone number: ");
-                        phone = scan.nextLine();
+                        phone = scanner.nextLine();
 
                         emailValid = Validater.isValidEmail(email);
                         phoneValid = Validater.isValidPhoneNumber(phone);

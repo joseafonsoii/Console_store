@@ -1,115 +1,44 @@
 package ao.jose.modell;
 
+
+import java.sql.Timestamp;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
-public class Sales {
-    private int saleId;
-    private int clientId;
-    private int productId;
-    private int staffId;
+public class Sales{
+    private int id;
+    private int product_id;
+    private int client_id;
     private int quantity;
-    private BigDecimal priceEach;
-    private BigDecimal totalPrice; // STORED GENERATED (não precisa inserir manualmente)
-    private LocalDateTime saleDate;
-    private String paymentMethod;
+    private Timestamp sale_date;
+    private PaymentMethod payment_method;
+    private BigDecimal total_price;
 
 
-    public Sales() {
-        // Default constructor
-    }
-    // Constructor for creating a new sale with minimum details
-    public Sales(int clientId, int productId, int staffId, int quantity) {
-        this.clientId = clientId;
-        this.productId = productId;
-        this.staffId = staffId;
+    public Sales(int product_id, int client_id, int quantity,BigDecimal total_price, PaymentMethod payment_method) {
+        this.product_id = product_id;
+        this.client_id = client_id;
         this.quantity = quantity;
-    }
-    // Constructor for creating a new sale with all details
-    public Sales(int saleId, int clientId, int productId, int staffId, int quantity,
-                BigDecimal priceEach, BigDecimal totalPrice, LocalDateTime saleDate, String paymentMethod) {
-        this.saleId = saleId;
-        this.clientId = clientId;
-        this.productId = productId;
-        this.staffId = staffId;
-        this.quantity = quantity;
-        this.priceEach = priceEach;
-        this.totalPrice = totalPrice;
-        this.saleDate = saleDate;
-        this.paymentMethod = paymentMethod;
+        this.total_price = total_price;
+        this.payment_method = payment_method;   
+        
     }
 
-    // Getters and Setters
-
-    public int getSaleId() {
-        return saleId;
+    public enum PaymentMethod {
+        CASH, CREDIT_CARD, DEBIT_CARD, EXPRESS
     }
-
-    public void setSaleId(int saleId) {
-        this.saleId = saleId;
-    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(int staffId) {
-        this.staffId = staffId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public BigDecimal getPriceEach() {
-        return priceEach;
-    }
-
-    public void setPriceEach(BigDecimal priceEach) {
-        this.priceEach = priceEach;
-    }
-
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public LocalDateTime getSaleDate() {
-        return saleDate;
-    }
-
-    public void setSaleDate(LocalDateTime saleDate) {
-        this.saleDate = saleDate;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
+    
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; } 
+    public int getProductId() { return product_id; }
+    public void setProductId(int product_id) { this.product_id = product_id; }
+    public int getClientId() { return client_id; }
+    public void setClientId(int client_id) { this.client_id = client_id; }
+    public int getQuantity() { return quantity; }
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public BigDecimal getTotalPrice() { return total_price; }
+    public void setTotalPrice(BigDecimal total_price) { this.total_price = total_price;}
+    public Timestamp getSaleDate() { return sale_date; }
+    public void setSaleDate(Timestamp sale_date) { this.sale_date = sale_date;}
+    public PaymentMethod getPaymentMethod() { return payment_method; }
+    public void setPaymentMethod(PaymentMethod payment_method) { this.payment_method = payment_method;}
 }

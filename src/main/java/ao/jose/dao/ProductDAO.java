@@ -13,7 +13,7 @@ public class ProductDAO {
 
 	
     public void addProduct(Product product) {
-        String query = "INSERT INTO product (name, description, price, quantity) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO product (name, description, price, stock_quantity) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = Connecter.conecting();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -51,7 +51,7 @@ public class ProductDAO {
     			int id = rs.getInt("id");
     			String name = rs.getString("name");
     			BigDecimal price = rs.getBigDecimal("price");
-    			int quantity = rs.getInt("quantity");
+    			int quantity = rs.getInt("stock_quantity");
     			
     			System.out.printf("|%-2s |%-20s |%-10.2f |%-10d |\n",id,name,price,quantity);
     			

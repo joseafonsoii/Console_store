@@ -12,7 +12,7 @@ import ao.jose.modell.Client;
 public class ClientDAO {
 
     public void registClient(Client client) {
-        String query = "INSERT INTO clients (name, email, phone_number) VALUES (?, ?, ?)";
+        String query = "INSERT INTO client (name, email, phone_number) VALUES (?, ?, ?)";
 
         try (Connection conn = Connecter.conecting();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -31,7 +31,7 @@ public class ClientDAO {
     }
 
     public void listClients() {
-    	String query = "SELECT * FROM clients";
+    	String query = "SELECT * FROM client";
     	
     	try (Connection conn = Connecter.conecting();
     			Statement stmt =conn.createStatement();

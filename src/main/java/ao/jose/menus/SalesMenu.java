@@ -1,5 +1,6 @@
 package ao.jose.menus;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 import ao.jose.dao.SalesDAO;
@@ -8,6 +9,7 @@ import ao.jose.modell.Sales;
 public class SalesMenu {
 
     private Scanner scanner;
+
     public SalesMenu(Scanner scanner) {
         this.scanner = scanner;
     }
@@ -15,49 +17,42 @@ public class SalesMenu {
     // Add methods and properties as needed for sales management
 
     public void showMenu() {
-        SalesDAO salesDAO = new SalesDAO();
-        
-        // Code to display the sales menu options
-        System.out.println("Sales Menu:");
-        System.out.println("1. Register Sale");
-        System.out.println("2. List Sales");
-        System.out.println("3. Exit");
-
-        // Logic to handle user input and call appropriate methods
         int choice;
         do {
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            System.out.println("=== Sales Menu ===");
+            System.out.println("1. Add Sale");
+            System.out.println("2. List Sales");
+            System.out.println("3. Exit");
+            System.out.print("Choose an option: ");
 
-            switch (choice) {
-                case 1:
-                    Sales sales = new Sales();
-                    System.out.print("Enter Client ID: ");
-                    sales.setClientId(scanner.nextInt());
-                    System.out.print("Enter Product ID: ");
-                    sales.setProductId(scanner.nextInt());
-                    System.out.print("Enter Staff ID: ");
-                    sales.setStaffId(scanner.nextInt());
-                    System.out.print("Enter Quantity: ");
-                    sales.setQuantity(scanner.nextInt());
-                    scanner.nextLine(); // Consume newline
-                    System.out.print("Enter Payment Method: ");
-                    sales.setPaymentMethod(scanner.nextLine());
+        choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        SalesDAO salesDAO = new SalesDAO();
 
-                    salesDAO.registerSale(sales);
-                    break;
-                case 2:
-                    salesDAO.listSales();
-                    break;
-                case 3:
-                    System.out.println("Exiting Sales Menu.");
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
-            }
-        } while (choice != 3);
-        scanner.close();
-    }
-
+        switch (choice) {
+            case 1:
+                System.out.print("Enter sale product ID: ");
+                int productId = scanner.nextInt();
+                System.out.print("Enter sale client ID: ");
+                int clientId = scanner.nextInt();
+                System.out.print("Enter sale quantity: ");
+                int quantity = scanner.nextInt();
+                BigDecimal totalPrice = BigDecimal.ZERO; 
+                System.out.println("Payment method (CASH, CREDIT_CARD, DEBIT_CARD,EXPRESS): ");
+                String paymentMethodStr = scanner.nextLine().toUpperCase();
+                Sales.PaymentMethod paymentMethod = Sales.PaymentMethod.valueOf(paymentMethodStr);
+                Sales sale = new Sales(productId, clientId, quantity, totalPrice,paymentMethod);
+                salesDAO.registerSale(sale);
+                break;
+            case 2:
+                salesDAO.listSales();
+                break;
+            case 3:
+                System.out.println("Exiting...");
+                return;
+            default:
+                System.out.println("Invalid choice, please try again.");
+        }
+    }while (choice != 3);
+}
 }

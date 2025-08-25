@@ -16,11 +16,11 @@ public class MainMenu {
             System.out.println("2. Client Menu");
             System.out.println("3. Staff Menu");
             System.out.println("4. Sales Menu");
-            System.out.println("5. Exit");
+            System.out.println("5. Shut down");
             System.out.print("Choose an option: ");
 
             int choice = scanner.nextInt();
-            scanner.nextLine(); // limpar \n
+            scanner.nextLine(); // clear \n
 
             switch (choice) {
                 case 1:
@@ -30,13 +30,13 @@ public class MainMenu {
                     new ClientMenu(scanner).showMenu();
                     break;
                 case 3:
-                    new StaffMenu(scanner).showMenu(); // ⬅️ Aqui está o Scanner passado corretamente
+                    new StaffMenu(scanner).showMenu(); 
                     break;
                 case 4:
                     new SalesMenu(scanner).showMenu();
                     break;
                 case 5:
-                    System.out.println("EXITING...");
+                    System.out.println("SHUTING DOWN...");
                     return;
                 default:
                     System.out.println("Invalid choice, please try again.");

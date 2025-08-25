@@ -6,9 +6,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connecter {
-    private static final String URL = "jdbc:mysql://localhost:3306/console_shop?useSSL=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://localhost:3306/console_store?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "your mysql server password";
+    private static final String PASSWORD = "";
 
     public static Connection conecting() {
         try {

@@ -15,15 +15,15 @@ public class StaffDAO {
     // Add methods for CRUD operations on staff data
     public void addStaffMember(Staff staff) {
         // Code to add a new staff member to the database
-        String query = "INSERT INTO staff(name, email, salary, phone) VALUES(?,?,?,?)";
+        String query = "INSERT INTO staff(name, email,phone_number,salary) VALUES(?,?,?,?)";
 
         try (Connection conn = Connecter.conecting();
                 PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, staff.getName());
             stmt.setString(2, staff.getEmail());
-            stmt.setBigDecimal(3, staff.getSalary());
-            stmt.setString(4, staff.getPhoneNumber());
+            stmt.setString(3, staff.getPhoneNumber());
+            stmt.setBigDecimal(4, staff.getSalary());
 
             stmt.executeUpdate();
             System.out.println("Staff member added to the database!");

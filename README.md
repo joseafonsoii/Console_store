@@ -104,8 +104,8 @@ To get you started, here are some sample `INSERT` statements you can run to popu
 ### Clients
 ```sql
 INSERT INTO client (name, email, phone_number) VALUES
-('John Doe', 'john.doe@example.com', '912345678'),
-('Jane Smith', 'jane.smith@example.com', '987654321');
+('Jose AFonso', 'john.doe@example.com', '912345678'),
+('Paulo Andre', 'jane.smith@example.com', '987654321');
 ```
 
 ### Products

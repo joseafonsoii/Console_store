@@ -117,6 +117,8 @@ INSERT INTO product (name, description, price, stock_quantity) VALUES
 ('Keyboard', 'A mechanical keyboard', 75.00, 150);
 ```
 
+#THANKS :)
+
 ### Staff
 ```sql
 INSERT INTO staff (name, email, phone_number, salary) VALUES
